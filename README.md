@@ -1,3 +1,5 @@
 # ONLINE-GROCERY-SHOPPING
 
+cd "path"
+
 
