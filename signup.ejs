@@ -1,0 +1,36 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/signup.css"> <!-- Create a new CSS file for signup styles -->
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main class="signup-container">
+        <div class="signup-header">
+            <h2>Create Your Account</h2>
+        </div>
+
+        <% if (errorMessage) { %>
+            <div class="user-message user-message--error"><%= errorMessage %></div>
+        <% } %>
+
+        <form class="signup-form" action="/signup" method="POST">
+            <div class="form-control">
+                <label for="email">E-Mail</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div class="form-control">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" required>
+            </div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button class="btn" type="submit">Signup</button>
+        </form>
+    </main>
+
+    <%- include('../includes/end.ejs') %>
+</body>
